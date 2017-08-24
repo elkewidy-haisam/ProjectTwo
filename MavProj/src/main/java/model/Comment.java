@@ -6,17 +6,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="COMMENTS")
 public class Comment {
 	
 	@Id
-	@Column
+	@Column(name="COMMENT_ID")
 	private int comment_id;
 	
-	@Column
+	@Column(name="BLOGPOST_BLOGPOSTID")
 	private int user_id;
 	
-	@Column
+	@Column(name="COMMENTS_COTENT")
 	private byte[] comment_content;
 	
 	

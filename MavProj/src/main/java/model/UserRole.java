@@ -10,13 +10,10 @@ import javax.persistence.Table;
 public class UserRole {
 	
 	@Id
-	@Column
+	@Column(name="USERROLE_ID")
 	private int user_role_id;
 	
-	@Column
-	private int role_id;
-	
-	@Column
+	@Column(name="DESCRIPTION")
 	private String description;
 	
 	
@@ -24,10 +21,9 @@ public class UserRole {
 		super();
 	}
 
-	public UserRole(int user_role_id, int role_id, String description) {
+	public UserRole(int user_role_id, String description) {
 		super();
 		this.user_role_id = user_role_id;
-		this.role_id = role_id;
 		this.description = description;
 	}
 
@@ -39,14 +35,6 @@ public class UserRole {
 
 	public void setUser_role_id(int user_role_id) {
 		this.user_role_id = user_role_id;
-	}
-
-	public int getRole_id() {
-		return role_id;
-	}
-
-	public void setRole_id(int role_id) {
-		this.role_id = role_id;
 	}
 
 	public String getDescription() {

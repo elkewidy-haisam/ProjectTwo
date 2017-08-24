@@ -10,33 +10,36 @@ import javax.persistence.Table;
 public class User {
 	
 	@Id
-	@Column
+	@Column(name="USER_ID")
 	private int user_id;
 	
-	@Column
+	@Column(name="USERNAME")
 	private String username;
 	
-	@Column
+	@Column(name="FIRSTNAME")
 	private String firstname;
 	
-	@Column
+	@Column(name="LASTNAME")
 	private String lastname;
 	
-	@Column
+	@Column(name="EMAIL")
 	private String email;
 	
-	@Column
+	@Column(name="ROLEID")
 	private int role_id;
 	
-	@Column
+	@Column(name="PASSWORD")
 	private String password;
+	
+	@Column(name="USERROLE_USERROLE_ID")
+	private int userrole_id;
 	
 	public User() {
 		super();
 		
 	}
 	
-	public User(int user_id, String username, String firstname, String lastname, String email, int role_id, String password) {
+	public User(int user_id, String username, String firstname, String lastname, String email, int role_id, String password, int userrole_id) {
 		super();
 		this.user_id = user_id;
 		this.username = username;
@@ -45,6 +48,7 @@ public class User {
 		this.email = email;
 		this.role_id = role_id;
 		this.password = password;
+		this.userrole_id = userrole_id;
 	
 	}
 	
