@@ -1,8 +1,16 @@
 package model;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -11,6 +19,8 @@ public class User {
 	
 	@Id
 	@Column(name="USER_ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="user_id")
+	@SequenceGenerator(name="user_id", sequenceName="USER_ID_SEQ")
 	private int user_id;
 	
 	@Column(name="USERNAME")
@@ -25,28 +35,33 @@ public class User {
 	@Column(name="EMAIL")
 	private String email;
 	
-	@Column(name="ROLEID")
-	private int role_id;
-	
 	@Column(name="PASSWORD")
 	private String password;
 	
 	@Column(name="USERROLE_USERROLE_ID")
 	private int userrole_id;
 	
+	@OneToMany(mappedBy="user")
+	private Set<BlogPost> blogposts;
+	
+	@OneToOne(mappedBy="user")
+	private UserRole userRole;
+	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
+	
 	public User() {
 		super();
 		
 	}
 	
-	public User(int user_id, String username, String firstname, String lastname, String email, int role_id, String password, int userrole_id) {
+	public User(int user_id, String username, String firstname, String lastname, String email, String password, int userrole_id) {
 		super();
 		this.user_id = user_id;
 		this.username = username;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
-		this.role_id = role_id;
 		this.password = password;
 		this.userrole_id = userrole_id;
 	
@@ -83,21 +98,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getRole_id() {
-		return role_id;
-	}
-	public void setRole_id(int role_id) {
-		this.role_id = role_id;
-	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
 	
 
 }

@@ -1,11 +1,21 @@
 package model;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="BLOGPOST")
@@ -13,16 +23,28 @@ public class BlogPost {
 	
 	@Id
 	@Column(name="BLOGPOSTID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="blogpost_id")
+	@SequenceGenerator(name="blogpost_id", sequenceName="BLOGPOST_ID_SEQ")
 	private int blogpost_id;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="TIMESTAMP")
 	private Timestamp blogpost_timestamp;
 	
 	@Column(name="BLOGPOST_CONTENT")
-	private byte[] blogpost_content;
+	private String blogpost_content;
 	
 	@Column(name="USERS_USER_ID")
 	private int blogpost_user_id;
+	
+	@ManyToOne
+	@JoinColumn(name="blogpost_user_id")
+	private User user;
+	
+	@OneToMany(mappedBy="blogpost")
+	private List<Comment> comments;
+	
+	
 	
 
 	public BlogPost() {
@@ -30,7 +52,7 @@ public class BlogPost {
 	}
 
 	public BlogPost(int blogpost_id, Timestamp blogpost_timestamp, int blogpost_user_id,
-			byte[] blogpost_content) {
+			String blogpost_content) {
 		super();
 		this.blogpost_id = blogpost_id;
 		this.blogpost_timestamp = blogpost_timestamp;
@@ -55,11 +77,11 @@ public class BlogPost {
 		this.blogpost_timestamp = blogpost_timestamp;
 	}
 
-	public byte[] getBlogpost_content() {
+	public String getBlogpost_content() {
 		return blogpost_content;
 	}
 
-	public void setBlogpost_content(byte[] blogpost_content) {
+	public void setBlogpost_content(String blogpost_content) {
 		this.blogpost_content = blogpost_content;
 	}
 
