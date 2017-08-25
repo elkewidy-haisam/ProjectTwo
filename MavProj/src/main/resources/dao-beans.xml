@@ -31,19 +31,19 @@
 	</bean>
 	
 	<!--  4. DAO -->
-	<bean name="UserDAO" class="dao.UserDAO">
+	<bean name="UserDAO" class="dao.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean name="BlogPostDAO" class="dao.BlogPostDAO">
+	<bean name="BlogPostDAO" class="dao.BlogPostDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean name="CommentDAO" class="dao.CommentDAO">
+	<bean name="CommentDAO" class="dao.CommentDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean name="UserRoleDAO" class="dao.UserRoleDAO">
+	<bean name="UserRoleDAO" class="dao.UserRoleDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
