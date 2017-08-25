@@ -23,7 +23,7 @@ public class CommentDAOImpl implements CommentDAO{
 		mySession = mySessionFactory.openSession();
 	}
 	//add
-	//done
+	//done-
 	public void addUserComment(UserComment myUserCommentBean){
 		//public void addComment(int commentId, int usersId, byte[] myArr){
 		/*
@@ -47,7 +47,7 @@ public class CommentDAOImpl implements CommentDAO{
 	}
 
 	//update
-	//done
+	//done-
 	public void updateUserComment(UserComment myUserCommentBean){
 	//public void updateComment(int commentId, int usersId, byte[] myArr){
 		//being transaction
@@ -61,7 +61,7 @@ public class CommentDAOImpl implements CommentDAO{
 	}
 	
 	//delete
-	//done
+	//done-
 	public void deleteUserComment(UserComment myUserCommentBean){
 		//public void deleteComment(int commentId, int usersId){
 		//begin transaction
@@ -73,13 +73,14 @@ public class CommentDAOImpl implements CommentDAO{
 	}
 	
 	//stub
+	//-
 	public UserComment getUserComment(int usersID, int commentsID){
 		//open session
 		
 		//Comment myCommentBean = (Comment) mySession.get(Comment.class, );
 		return new UserComment();
 	}
-	
+	//done-
 	public List<UserComment> getAllUserComments(){
 		List<UserComment> myListnew = new ArrayList<UserComment>();
 		//String myAllQuery = "Select * from user_comments";
@@ -88,11 +89,25 @@ public class CommentDAOImpl implements CommentDAO{
 		return myListnew;
 	}
 	
-	//add comment
+	//comments Table Section
 	
+	//add comment
+	//
 	public void addComment(Comment myComment){
-	//delete comment
 		
 	}
-
+	//delete comment
+	public void deleteComment(){
+		
+	}
+	
+	//getFullName
+	
+	public void getFullName(){
+		
+	}
+	
+	public void getComment(){
+		
+	}
 }

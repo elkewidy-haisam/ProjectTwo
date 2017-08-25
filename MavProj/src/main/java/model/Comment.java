@@ -1,6 +1,6 @@
 package model;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-//@IdClass
+
 @Entity
 @Table(name="COMMENTS")
-public class Comment implements Serializable{
+public class Comment{
 	
 	@Id
 	@Column(name="COMMENT_ID")
 	private int comment_id;
-	//@Id
+	
 	@Column(name="BLOGPOST_BLOGPOSTID")
 	private int user_id;
 	
