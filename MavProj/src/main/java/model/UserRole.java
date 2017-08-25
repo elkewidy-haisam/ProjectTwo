@@ -3,6 +3,8 @@ package model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +17,11 @@ public class UserRole {
 	
 	@Column(name="DESCRIPTION")
 	private String description;
+	
+	@OneToOne
+	@JoinColumn(name="user_role_id")
+	private User user;
+	
 	
 	
 	public UserRole() {

@@ -6,12 +6,12 @@ import model.User;
 
 public interface UserDAO {
 	
-	public boolean createUser(User user);
+	public void createUser(User user);
 	
-	public User updateUser(User user);
+	public void updateUser(User user);
 	
-	public boolean deleteUser(User user);
+	public void deleteUser(User user);
 	
-	public List<String> getFullName(User user);
+	public String getFullName(User user);
 
 }
