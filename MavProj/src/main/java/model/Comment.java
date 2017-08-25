@@ -1,34 +1,39 @@
 package model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
+//@IdClass
 @Entity
 @Table(name="COMMENTS")
-public class Comment {
+public class Comment implements Serializable{
 	
 	@Id
 	@Column(name="COMMENT_ID")
 	private int comment_id;
-	
+	//@Id
 	@Column(name="BLOGPOST_BLOGPOSTID")
 	private int user_id;
 	
+	/*
 	@Column(name="COMMENTS_COTENT")
-	private byte[] comment_content;
-	
+	private String comment_content;
+	*/
 	
 	public Comment() {
 		super();
 	}
 
-	public Comment(int comment_id, int user_id, byte[] comment_content) {
+	public Comment(int comment_id, int user_id, String comment_content) {
 		super();
 		this.comment_id = comment_id;
 		this.user_id = user_id;
-		this.comment_content = comment_content;
+		//this.comment_content = comment_content;
 	}
 
 	public int getComment_id() {
@@ -46,14 +51,14 @@ public class Comment {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-
-	public byte[] getComment_content() {
+/*
+	public String getComment_content() {
 		return comment_content;
 	}
 
-	public void setComment_content(byte[] comment_content) {
+	public void setComment_content(String comment_content) {
 		this.comment_content = comment_content;
 	}
-	
+	*/
 	
 }
