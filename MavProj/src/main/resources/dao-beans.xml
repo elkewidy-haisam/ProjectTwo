@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<tx:annotation-driven />
 	
 	<!--  1. DataSource -->
+	<bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="#{SystemEnvironment['DB_URL']}" />
+		<property name="username" value="#{SystemEnvironment['DB_USERNAME']}" />
+		<property name="password" value="#{SystemEnvironment['DB_PASSWORD']}" />
+	</bean>
 	
 	<!--  2. SessionFactory -->
+	<bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="DAOUtilities" />
+		<property name="packagesToScan" value="model" /> <!--  @Entity -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+			</props>
+		</property>
+	</bean>
 	
 	<!--  3. TransactionManager -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	
 	<!--  4. DAO -->
+	<bean name="UserDAO" class="dao.UserDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean name="BlogPostDAO" class="dao.BlogPostDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean name="CommentDAO" class="dao.CommentDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean name="UserRoleDAO" class="dao.UserRoleDAO">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	
 
 </beans>
