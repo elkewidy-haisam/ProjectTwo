@@ -94,6 +94,13 @@ public class CommentDAOImpl implements CommentDAO{
 	//add comment
 	//
 	public void addComment(Comment myComment){
+		//open
+		//begin transaction
+		//save transaction
+		//commit transaction
+		//close
+		mySession = mySessionFactory.openSession();
+		Transaction myTransaction = mySession.beginTransaction();
 		
 	}
 	//delete comment

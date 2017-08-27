@@ -24,7 +24,7 @@ public interface CommentDAO {
 	public void addComment(Comment myComment);
 	//delete
 	public void deleteComment();
-	
+	//get
 	public void getComment();
 	
 }
