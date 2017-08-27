@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import model.Comment;
+import model.User;
 import model.UserComment;
 
 public class CommentDAOImpl implements CommentDAO{
@@ -104,17 +105,30 @@ public class CommentDAOImpl implements CommentDAO{
 		
 	}
 	//delete comment
-	public void deleteComment(){
-		
+	public void deleteComment(Comment myComment){
+		//transaction
+		Transaction myTransaction = mySession.beginTransaction();
+		//delete
+		mySession.delete(myComment);
+		//commit
+		myTransaction.commit();
 	}
 	
 	//getFullName
 	
-	public void getFullName(){
+	public Comment getComment(int commentID){
 		
+		//shortcuts the sql argument with a session load statement
+		
+		Comment myComment = (Comment)mySession.load(Comment.class, commentID);
+		
+		return myComment;
 	}
 	
-	public void getComment(){
-		
+	public void updateComment(Comment myComment){
+		//begin transaction
+		Transaction myTransaction = mySession.beginTransaction();
+		//update the bean
+		mySession.saveOrUpdate(myComment);
 	}
 }

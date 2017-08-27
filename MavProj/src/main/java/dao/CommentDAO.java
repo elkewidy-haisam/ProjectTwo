@@ -23,8 +23,10 @@ public interface CommentDAO {
 	//add
 	public void addComment(Comment myComment);
 	//delete
-	public void deleteComment();
-	//get
-	public void getComment();
+	public void deleteComment(Comment myComment);
+	//get-
+	public Comment getComment(int commentID);
+	//update-
+	public void updateComment(Comment myComment);
 	
 }
