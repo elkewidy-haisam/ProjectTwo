@@ -93,7 +93,7 @@ public class CommentDAOImpl implements CommentDAO{
 	//comments Table Section
 	
 	//add comment
-	//
+	//done
 	public void addComment(Comment myComment){
 		//open
 		//begin transaction
@@ -105,6 +105,7 @@ public class CommentDAOImpl implements CommentDAO{
 		
 	}
 	//delete comment
+	//done
 	public void deleteComment(Comment myComment){
 		//transaction
 		Transaction myTransaction = mySession.beginTransaction();
@@ -113,9 +114,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//commit
 		myTransaction.commit();
 	}
-	
-	//getFullName
-	
+	//done
 	public Comment getComment(int commentID){
 		
 		//shortcuts the sql argument with a session load statement
@@ -124,7 +123,7 @@ public class CommentDAOImpl implements CommentDAO{
 		
 		return myComment;
 	}
-	
+	//done
 	public void updateComment(Comment myComment){
 		//begin transaction
 		Transaction myTransaction = mySession.beginTransaction();

@@ -9,7 +9,7 @@ import model.UserComment;
 
 public class CommentDAOTest {
 
-	//Logge myLogger = Logger.getLogger(name);
+	//Logger myLogger = Logger.getLogger(name);
 	
 	/*log.trace("trace log");
 	
@@ -25,11 +25,13 @@ public class CommentDAOTest {
 	*/
 	
 	@Test
-	public void addUserComment(){
+	//done
+	public void testAddUserComment(){
 		//modeling the success of getting output
+		//create a new dao
 		CommentDAOImpl myCommentDAO = new CommentDAOImpl();
+		//create a new bean
 		UserComment myUserCommentBean = new UserComment();
-		
 		myUserCommentBean.setUsersID(1);
 		myUserCommentBean.setCommentID(1);
 		myCommentDAO.addUserComment(myUserCommentBean);
@@ -39,9 +41,9 @@ public class CommentDAOTest {
 		System.out.println("Successful insertion into Comment Table");
 		
 	}
-	
+	//done
 	@Test
-	public void updateUserComment(){
+	public void testUpdateUserComment(){
 		//to update we would add an entry into the database
 		CommentDAOImpl myCommentDAO = new CommentDAOImpl();
 		//to output success we would get no error out of the database
@@ -51,8 +53,12 @@ public class CommentDAOTest {
 		
 	}
 	
+	
+	
 	//to test the deletion, create a new bean, add it, then delete it
-	public void deleteComment(){
+	//done
+	@Test
+	public void testDeleteUserComment(){
 		CommentDAOImpl myCommentDAO = new CommentDAOImpl();
 		UserComment myUserCommentBean = new UserComment(1,1,"Example");
 		myCommentDAO.addUserComment(myUserCommentBean);
@@ -60,11 +66,18 @@ public class CommentDAOTest {
 		
 	}
 	
-	public void getComment(){
+	@Test
+	public void testGetUserComment(){
 		
 	}
 	
-	public void getAllComments(){
+	@Test
+	public void testGetAllUserComments(){
+		
+	}
+	
+	@Test
+	public void testAddComment(){
 		
 	}
 	
