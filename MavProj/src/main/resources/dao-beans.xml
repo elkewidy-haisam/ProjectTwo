@@ -31,6 +31,7 @@
 	</bean>
 	
 	<!--  4. DAO -->
+<<<<<<< HEAD
 	<bean name="UserDAO" class="dao.UserDAOImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -44,6 +45,21 @@
 	</bean>
 	
 	<bean name="UserRoleDAO" class="dao.UserRoleDAOImpl">
+=======
+	<bean name="UserDAOImpl" class="dao.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean name="BlogPostDAOImpl" class="dao.BlogPostDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean name="CommentDAOImpl" class="dao.CommentDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean name="UserRoleDAOImpl" class="dao.UserRoleDAOImpl">
+>>>>>>> 751ec89bf6d56626601efb5cc859a5eb94d4d374
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
