@@ -8,22 +8,12 @@ import model.UserComment;
 public interface CommentDAO {
 
 	//add
-<<<<<<< HEAD
-	
-	//update
-	
-	//delete
-	
-	//getFullName
-	
-}
-=======
 	public void addUserComment(UserComment myUserComment);
 	//update
 	public void updateUserComment(UserComment myUserComment);
 	//delete
 	public void deleteUserComment(UserComment myUserComment);
-	
+	//getFullName
 	public UserComment getUserComment(int usersID, int commentsID);
 	
 	public List<UserComment> getAllUserComments();
@@ -40,4 +30,3 @@ public interface CommentDAO {
 	public void updateComment(Comment myComment);
 	
 }
->>>>>>> master

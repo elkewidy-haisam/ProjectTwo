@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.UserRoleDAO;
+import dao.UserRoleDAOImpl;
 
 public class UserRoleController {
 	
-	private UserRoleDAO dao;
+	private UserRoleDAOImpl daoimpl;
 	
-	public void setDao(UserRoleDAO dao) {
-		this.dao = dao;
+	public void setDaoImpl(UserRoleDAOImpl daoimpl) {
+		this.daoimpl = daoimpl;
 		
 	}
 	
@@ -23,7 +24,7 @@ public class UserRoleController {
 	@ResponseBody
 	public void getRole(@Valid @RequestBody int user_role_id) {
 		
-		dao.getRoleByID(user_role_id);
+		daoimpl.getRoleByID(user_role_id);
 		
 	}
 	

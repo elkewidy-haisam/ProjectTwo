@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.BlogPostDAO;
+import dao.BlogPostDAOImpl;
 import model.BlogPost;
 
 @Controller
 public class BlogPostController {
 	
 	@Autowired
-	private BlogPostDAO dao;
+	private BlogPostDAOImpl daoimpl;
 	
-	public void setDao(BlogPostDAO dao) {
+	public void setDaoImpl(BlogPostDAOImpl daoimpl) {
 		
-		this.dao = dao;
+		this.daoimpl = daoimpl;
 		
 	}
 	
@@ -29,7 +30,7 @@ public class BlogPostController {
 	@ResponseBody
 	public void create(@Valid @RequestBody BlogPost blogpost) {
 		
-		dao.addBlogPost(blogpost);
+		daoimpl.addBlogPost(blogpost);
 		
 	}
 	
@@ -37,7 +38,7 @@ public class BlogPostController {
 	@ResponseBody
 	public void update(@RequestBody BlogPost blogpost) {
 		
-		dao.editBlogPost(blogpost);
+		daoimpl.editBlogPost(blogpost);
 		
 	}
 	
@@ -45,7 +46,7 @@ public class BlogPostController {
 	@ResponseBody
 	public void delete(@RequestBody BlogPost blogpost) {
 		
-		dao.deleteBlogPost(blogpost);
+		daoimpl.deleteBlogPost(blogpost);
 		
 	}
 	
@@ -53,7 +54,7 @@ public class BlogPostController {
 	@ResponseBody
 	public void getByBlogPostID(@RequestBody int blogpost_id) {
 		
-		dao.getBlogPostByID(blogpost_id);
+		daoimpl.getBlogPostByID(blogpost_id);
 	
 	}
 

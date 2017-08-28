@@ -1,20 +1,14 @@
 package model;
 
-<<<<<<< HEAD
-import javax.persistence.*;
 
-@Entity
-@Table(name="UsersComments")
-public class UserComment {
-=======
 import java.io.Serializable;
-
 import javax.persistence.*;
+
+
 @IdClass(UserCommentCompositeKey.class)
 @Entity
 @Table(name="UsersComments")
 public class UserComment implements Serializable{
->>>>>>> master
 	@Id
 	@Column(name = "USERS_ID")
 	private int usersID;
@@ -24,14 +18,11 @@ public class UserComment implements Serializable{
 	
 	@Column(name = "COMMENT_CONTENT")
 	private String commentContent;
-	
-<<<<<<< HEAD
-=======
+
 	public UserComment() {
 		super();
 	}
 	
->>>>>>> master
 	public UserComment(int usersID, int commentID, String commentContent) {
 		super();
 		this.usersID = usersID;
@@ -64,8 +55,4 @@ public class UserComment implements Serializable{
 	}
 	
 	
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

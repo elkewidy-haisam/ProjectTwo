@@ -11,25 +11,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import dao.UserDAO;
+import dao.UserDAOImpl;
 import model.User;
 
 @Controller
 public class UserController {
 	
 	@Autowired
-	private UserDAO dao;
+	private UserDAOImpl daoimpl;
 	
 	
 	
-	public void setDao(UserDAO dao) {
-		this.dao = dao;
+	public void setDaoImpl(UserDAOImpl daoimpl) {
+		this.daoimpl = daoimpl;
 	}
 	
 	@RequestMapping(value="/user/create", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public void create(@Valid @RequestBody User user){
 		
-		dao.createUser(user);
+		daoimpl.createUser(user);
 		
 	}
 	
@@ -37,7 +38,7 @@ public class UserController {
 	@ResponseBody
 	public void update(@RequestBody User user){
 		
-		dao.updateUser(user);
+		daoimpl.updateUser(user);
 		
 	}
 	
@@ -45,7 +46,7 @@ public class UserController {
 	@ResponseBody
 	public void delete(@RequestBody User user){
 		
-		dao.deleteUser(user);
+		daoimpl.deleteUser(user);
 		
 	}
 	
@@ -53,7 +54,7 @@ public class UserController {
 	@ResponseBody
 	public String getFullName(@RequestBody User user){
 		
-		return dao.getFullName(user);
+		return daoimpl.getFullName(user);
 		
 	}
 
