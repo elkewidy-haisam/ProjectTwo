@@ -1,8 +1,10 @@
 package model;
 
-import java.io.Serializable;
 
+import java.io.Serializable;
 import javax.persistence.*;
+
+
 @IdClass(UserCommentCompositeKey.class)
 @Entity
 @Table(name="UsersComments")
@@ -16,7 +18,7 @@ public class UserComment implements Serializable{
 	
 	@Column(name = "COMMENT_CONTENT")
 	private String commentContent;
-	
+
 	public UserComment() {
 		super();
 	}

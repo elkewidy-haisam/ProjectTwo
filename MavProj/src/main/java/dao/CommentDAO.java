@@ -13,7 +13,7 @@ public interface CommentDAO {
 	public void updateUserComment(UserComment myUserComment);
 	//delete
 	public void deleteUserComment(UserComment myUserComment);
-	
+	//getFullName
 	public UserComment getUserComment(int usersID, int commentsID);
 	
 	public List<UserComment> getAllUserComments();
