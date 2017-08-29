@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> Positivity - Home Page </title>
+<script type="text/javascript"
+	src="https://code.angularjs.org/1.6.1/angular.js"></script>
+<script type="text/javascript"
+	src="https://code.angularjs.org/1.6.1/angular-route.js"></script>
+<script type="text/javascript" src="https://code.angularjs.org/1.6.1/angular-route.js"></script>
+<script type="text/javascript" src="blog.js"></script>
+</head>
+<body ng-app="blog">
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<a href="#about"> About Us </a>
+		<a href="#addBlogPost"> Create Blog Posts </a>
+		<a href="#viewRecentBlogPosts"> Recent Content </a>
+		<a href="#viewAllBlogPosts"> Archives </a>
+		<a href="#viewYourBlogPosts"> Your Blog Posts </a>
+	</nav>
+
+
+	<div class="container">
+		<div ng-view>
+		
+		
+		</div>
+	</div>
+
+
+</body>
+</html>
