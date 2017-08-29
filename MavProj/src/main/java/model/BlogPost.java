@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -29,7 +28,7 @@ public class BlogPost {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="TIMESTAMP")
-	private Timestamp blogpost_timestamp;
+	private Date blogpost_timestamp;
 	
 	@Column(name="BLOGPOST_CONTENT")
 	private String blogpost_content;
@@ -45,13 +44,12 @@ public class BlogPost {
 	private List<Comment> comments;
 	
 	
-	
 
 	public BlogPost() {
 		super();
 	}
 
-	public BlogPost(int blogpost_id, Timestamp blogpost_timestamp, int blogpost_user_id,
+	public BlogPost(int blogpost_id, Date blogpost_timestamp, int blogpost_user_id,
 			String blogpost_content) {
 		super();
 		this.blogpost_id = blogpost_id;
@@ -69,11 +67,11 @@ public class BlogPost {
 		this.blogpost_id = blogpost_id;
 	}
 
-	public Timestamp getBlogpost_timestamp() {
+	public Date getBlogpost_timestamp() {
 		return blogpost_timestamp;
 	}
 
-	public void setBlogpost_timestamp(Timestamp blogpost_timestamp) {
+	public void setBlogpost_timestamp(Date blogpost_timestamp) {
 		this.blogpost_timestamp = blogpost_timestamp;
 	}
 

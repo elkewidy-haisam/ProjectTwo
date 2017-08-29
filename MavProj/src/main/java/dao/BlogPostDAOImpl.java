@@ -10,7 +10,7 @@ import model.BlogPost;
 @Repository
 public class BlogPostDAOImpl implements BlogPostDAO{
 	
-	@Autowired
+	
 	private SessionFactory sessionFactory;
 	
 	private Session session;

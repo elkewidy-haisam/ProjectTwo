@@ -17,7 +17,6 @@ import model.BlogPost;
 @Controller
 public class BlogPostController {
 	
-	@Autowired
 	private BlogPostDAOImpl daoimpl;
 	
 	public void setDaoImpl(BlogPostDAOImpl daoimpl) {

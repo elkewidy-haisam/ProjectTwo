@@ -17,10 +17,7 @@ import model.User;
 @Controller
 public class UserController {
 	
-	@Autowired
 	private UserDAOImpl daoimpl;
-	
-	
 	
 	public void setDaoImpl(UserDAOImpl daoimpl) {
 		this.daoimpl = daoimpl;
