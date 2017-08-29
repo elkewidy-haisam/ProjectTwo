@@ -2,12 +2,17 @@ package dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.BlogPost;
 
+@Repository
 public class BlogPostDAOImpl implements BlogPostDAO{
 	
+	@Autowired
 	private SessionFactory sessionFactory;
+	
 	private Session session;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {

@@ -1,14 +1,16 @@
 package dao;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import model.User;
 
+@Repository
 public class UserDAOImpl implements UserDAO{
 
+	
 	private SessionFactory sessionFactory;
-	private Session session;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -17,27 +19,21 @@ public class UserDAOImpl implements UserDAO{
 	
 	public void createUser(User user) {
 		// TODO Auto-generated method stub
-		session.beginTransaction();
 		sessionFactory.getCurrentSession().save(user);
-		session.getTransaction().commit();
 		
 	}
 
 	public void updateUser(User user) {
 		// TODO Auto-generated method stub
-			
-		session.beginTransaction();
+	
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
-		session.getTransaction().commit();
 		
 	}
 
 	public void deleteUser(User user) {
 		// TODO Auto-generated method stub
-		
-		session.beginTransaction();
+	
 		sessionFactory.getCurrentSession().delete(user);
-		session.getTransaction().commit();
 		
 	}
 

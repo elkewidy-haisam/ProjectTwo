@@ -36,7 +36,7 @@ public class BlogPost {
 	
 	@Column(name="USERS_USER_ID")
 	private int blogpost_user_id;
-	
+
 	@ManyToOne
 	@JoinColumn(name="blogpost_user_id")
 	private User user;
@@ -84,6 +84,15 @@ public class BlogPost {
 	public void setBlogpost_content(String blogpost_content) {
 		this.blogpost_content = blogpost_content;
 	}
+	
+	public int getBlogpost_user_id() {
+		return blogpost_user_id;
+	}
+
+	public void setBlogpost_user_id(int blogpost_user_id) {
+		this.blogpost_user_id = blogpost_user_id;
+	}
+	
 
 
 	

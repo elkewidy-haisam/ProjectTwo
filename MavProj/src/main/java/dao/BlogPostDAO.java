@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import model.BlogPost;
 
-@Repository
+
 public interface BlogPostDAO {
 	
 	//create blog post

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import model.Comment;
 import model.UserComment;
 
-@Repository
+
 public interface CommentDAO {
 
 	//add

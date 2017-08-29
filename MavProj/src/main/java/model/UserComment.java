@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @IdClass(UserCommentCompositeKey.class)
 @Entity
-@Table(name="UsersComments")
+@Table(name="USERS_COMMENTS")
 public class UserComment implements Serializable{
 	@Id
 	@Column(name = "USERS_ID")
