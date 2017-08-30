@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import model.User;
 
-
+@Transactional
 public class UserDAOImpl implements UserDAO{
 
 	private SessionFactory sessionFactory;
