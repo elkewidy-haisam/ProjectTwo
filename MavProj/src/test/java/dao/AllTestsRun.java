@@ -18,6 +18,6 @@ import junit.UserRoleDAOTests;
 	UserRoleDAOTests.class
 })
 
-public class runAllTests {
+public class AllTestsRun {
 
 }
