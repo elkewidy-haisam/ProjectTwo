@@ -26,7 +26,8 @@
 	</bean>
 
 	<!-- Spring core/context: find beans and auto-register -->
-	<context:component-scan base-package="dao" />
+	<context:component-scan base-package="dao"/>
+	
 
 
 </beans>

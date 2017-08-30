@@ -18,14 +18,14 @@ public class UserDAOTests {
 	
 	@BeforeClass
 	public static void setup(){
-		context = new ClassPathXmlApplicationContext("dao-beans.xml");
+		context = new ClassPathXmlApplicationContext("beans.xml");
 	}
 	
 	@Test
 	public void createUserTest(){
 
 		User user = new User();
-		UserDAOImpl userdaoimpl = context.getBean(UserDAOImpl.class);
+		UserDAOImpl userdaoimpl = (UserDAOImpl) context.getBean(UserDAOImpl.class);
 		user.setUsername("bye.felicia");
 		user.setFirstname("Bye");
 		user.setLastname("Felicia");
