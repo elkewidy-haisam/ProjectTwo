@@ -12,7 +12,7 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 import dao.UserDAOImpl;
 import model.User;
 
-public class UserDAOTests {
+public class UserDAOTest {
 	
 	private static ApplicationContext context;
 	

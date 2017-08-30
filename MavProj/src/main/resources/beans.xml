@@ -11,6 +11,7 @@
 		
 	<import resource="classpath:dao-beans.xml"/>
 
+	<tx:annotation-driven/>
 	<context:annotation-config /> <!-- @Autowired -->
 	<mvc:annotation-driven /> <!-- @Controller @RequestMapping -->
 	

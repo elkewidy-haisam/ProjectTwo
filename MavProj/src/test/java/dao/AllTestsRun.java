@@ -4,18 +4,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import junit.BlogPostDAOTests;
+import junit.BlogPostDAOTest;
 import junit.UserDAOTests;
-import junit.UserRoleDAOTests;
+import junit.UserRoleDAOTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	testSessionConnection.class,
 	CommentDAOTest.class,
-	BlogPostDAOTests.class,
+	BlogPostDAOTest.class,
 	CommentDAOTest.class,
 	UserDAOTests.class,
-	UserRoleDAOTests.class
+	UserRoleDAOTest.class
 })
 
 public class AllTestsRun {

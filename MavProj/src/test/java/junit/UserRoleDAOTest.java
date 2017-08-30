@@ -7,7 +7,7 @@ import org.junit.*;
 import dao.UserRoleDAOImpl;
 import model.UserRole;
 
-public class UserRoleDAOTests {
+public class UserRoleDAOTest {
 	
 	UserRole userrole = new UserRole();
 	UserRoleDAOImpl userroledaoimpl = new UserRoleDAOImpl();

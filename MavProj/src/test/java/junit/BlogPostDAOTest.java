@@ -7,7 +7,7 @@ import org.junit.*;
 import dao.BlogPostDAOImpl;
 import model.BlogPost;
 
-public class BlogPostDAOTests {
+public class BlogPostDAOTest {
 	
 	BlogPost blogpost = new BlogPost();
 	BlogPostDAOImpl blogpostdaoimpl = new BlogPostDAOImpl();
