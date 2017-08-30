@@ -17,7 +17,7 @@ public interface CommentDAO {
 	//delete
 	public void deleteUserComment(UserComment myUserComment);
 	//getFullName
-	public UserComment getUserComment(int usersID, int commentsID);
+	//public UserComment getUserComment(int usersID, int commentsID);
 	
 	public List<UserComment> getAllUserComments();
 	

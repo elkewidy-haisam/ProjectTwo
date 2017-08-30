@@ -59,7 +59,7 @@ public class CommentDAOImpl implements CommentDAO{
 	//update
 	//done-
 	@Transactional(isolation=Isolation.READ_COMMITTED,
-			propogation=Propagation.REQUIRED,
+			propagation=Propagation.REQUIRED,
 			rollbackFor=Exception.class)
 	public void updateUserComment(UserComment myUserCommentBean){
 	//public void updateComment(int commentId, int usersId, byte[] myArr){
@@ -97,9 +97,9 @@ public class CommentDAOImpl implements CommentDAO{
 		//open session
 		
 		//UserComment myCommentBean = (UserComment) session.get(UserComment.class);
-		List<UserComment> = mySessionFactory.getCurrentSession().createQuery("From UserService where UserId = "+
-		myUserComment.getUsersID()+ " AND commentID = " myUserComment.getCommentID())
-		UserComment myCommentBean ;
+		Query myQuery = mySessionFactory.getCurrentSession().createQuery("From UserService where UserId = " +
+		myUserComment.getUsersID() + " AND commentID = " + myUserComment.getCommentID());
+		UserComment myCommentBean  = myQuery.setString("idk", "COMMENTS_CONTENT");
 		return new UserComment();
 	}
 	//done-
