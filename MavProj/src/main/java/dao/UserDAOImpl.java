@@ -1,6 +1,7 @@
 package dao;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -9,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import model.User;
 
-@Transactional
+
 public class UserDAOImpl implements UserDAO{
 
+	@Autowired
 	private SessionFactory sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -22,6 +24,7 @@ public class UserDAOImpl implements UserDAO{
 	@Transactional(isolation=Isolation.READ_COMMITTED, propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
 	public void createUser(User user) {
 		// TODO Auto-generated method stub
+		
 		sessionFactory.getCurrentSession().save(user);
 		
 	}

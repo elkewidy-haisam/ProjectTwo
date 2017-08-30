@@ -5,15 +5,19 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import dao.UserDAOImpl;
 import model.User;
 
+
 public class UserDAOTest {
 	
+	@Autowired
 	private static ApplicationContext context;
 	
 	@BeforeClass
