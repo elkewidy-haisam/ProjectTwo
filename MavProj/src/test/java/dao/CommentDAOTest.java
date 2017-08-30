@@ -10,6 +10,7 @@ import org.junit.Ignore;
 //import java.util.logging.Logger;
 
 import org.junit.Test;
+import org.slf4j.Logger;
 
 import model.Comment;
 import model.UserComment;
@@ -32,13 +33,15 @@ public class CommentDAOTest {
 	*/
 	
 	@Test
-	//@Ignore
+	@Ignore
 	//done
 	public void testAddUserComment(){
 		//modeling the success of getting output
 		//create a new dao
+		System.out.println("create new dao in testAddUserComment");
 		CommentDAOImpl myCommentDAO = new CommentDAOImpl();
 		//create a new bean
+		System.out.println("create new bean in testAddUserComment");
 		UserComment myUserCommentBean = new UserComment();
 		myUserCommentBean.setUsersID(1);
 		myUserCommentBean.setCommentID(1);
@@ -106,7 +109,7 @@ public class CommentDAOTest {
 	
 	//done
 	@Test
-	@Ignore
+	//@Ignore
 	public void testAddComment(){
 		//new dao
 		CommentDAOImpl myCommentDAOImpl = new CommentDAOImpl();
