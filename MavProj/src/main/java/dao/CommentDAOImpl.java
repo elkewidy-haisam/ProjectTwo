@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,9 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 import model.Comment;
 import model.UserComment;
 
+@Component
 public class CommentDAOImpl implements CommentDAO{
 	
-	private SessionFactory mySessionFactory;
+	private SessionFactory sessionFactory;
+	private Session session;
 	//private Session session;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -51,7 +54,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//session.save(myUserCommentBean);
 		//commit T
 		//session.close();
-		mySessionFactory.getCurrentSession().save(myUserCommentBean);
+		sessionFactory.getCurrentSession().save(myUserCommentBean);
 		//String first = "Insert into comments values (?,?)";
 		
 	}
@@ -59,7 +62,7 @@ public class CommentDAOImpl implements CommentDAO{
 	//update
 	//done-
 	@Transactional(isolation=Isolation.READ_COMMITTED,
-			propogation=Propagation.REQUIRED,
+			propagation=Propagation.REQUIRED,
 			rollbackFor=Exception.class)
 	public void updateUserComment(UserComment myUserCommentBean){
 	//public void updateComment(int commentId, int usersId, byte[] myArr){
@@ -71,7 +74,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//myTransaction.commit();
 		//String second = "Update user_comments set comments_content = ? where comments_id = ? and users_id = ?";
 		
-		mySessionFactory.getCurrentSession().saveOrUpdate(myUserCommentBean);
+		sessionFactory.getCurrentSession().saveOrUpdate(myUserCommentBean);
 	}
 	
 	//delete
@@ -87,7 +90,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//session.delete(myUserCommentBean);
 		//String third = "Delete from user_comments where comments_id=? and users_id=?";
 		
-		mySessionFactory.getCurrentSession().delete(myUserCommentBean);
+		sessionFactory.getCurrentSession().delete(myUserCommentBean);
 		
 	}
 	
@@ -97,10 +100,10 @@ public class CommentDAOImpl implements CommentDAO{
 		//open session
 		
 		//UserComment myCommentBean = (UserComment) session.get(UserComment.class);
-		List<UserComment> = mySessionFactory.getCurrentSession().createQuery("From UserService where UserId = "+
-		myUserComment.getUsersID()+ " AND commentID = " myUserComment.getCommentID())
+		UserComment userComment = (UserComment) sessionFactory.getCurrentSession().createQuery("From UserComment where UserId := "+
+		myUserComment.getUsersID()+ " AND commentID := " + myUserComment.getCommentID());
 		UserComment myCommentBean ;
-		return new UserComment();
+		return userComment;
 	}
 	//done-
 	@SuppressWarnings("Supressed Unchecked Exception in CommentDAO")
@@ -111,7 +114,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//Query myQuery = session.createQuery(myAllQuery);
 		//return myListnew;
 		
-		return mySessionFactory.getCurrentSession().createQuery("From UserComments").list();
+		return sessionFactory.getCurrentSession().createQuery("From UserComments").list();
 	}
 	
 	//comments Table Section
@@ -127,7 +130,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//session = sessionFactory.openSession();
 		//Transaction myTransaction = session.beginTransaction();
 		
-		mySessionFactory.getCurrentSession().save(myComment);
+		sessionFactory.getCurrentSession().save(myComment);
 		
 	}
 	//delete comment
@@ -140,7 +143,7 @@ public class CommentDAOImpl implements CommentDAO{
 		//commit
 		//myTransaction.commit();
 		
-		mySessionFactory.getCurrentSession().delete(myComment);
+		sessionFactory.getCurrentSession().delete(myComment);
 	}
 	//done
 	public Comment getComment(int commentID){
@@ -151,6 +154,7 @@ public class CommentDAOImpl implements CommentDAO{
 		
 		return myComment;
 	}
+	
 	//done
 	public void updateComment(Comment myComment){
 		//begin transaction
@@ -158,6 +162,11 @@ public class CommentDAOImpl implements CommentDAO{
 		//update the bean
 		//session.saveOrUpdate(myComment);
 		
-		mySessionFactory.getCurrentSession().saveOrUpdate(myComment);
+		sessionFactory.getCurrentSession().saveOrUpdate(myComment);
+	}
+	
+	public UserComment getUserComment(int usersID, int commentsID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

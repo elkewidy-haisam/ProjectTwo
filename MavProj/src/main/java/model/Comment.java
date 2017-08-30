@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -19,6 +20,12 @@ public class Comment{
 	
 	@Column(name="BLOGPOST_BLOGPOSTID")
 	private int user_id;
+	
+	@ManyToOne
+	private BlogPost blogpost;
+	
+	@ManyToOne
+	private User user;
 	
 	/*
 	@Column(name="COMMENTS_COTENT")

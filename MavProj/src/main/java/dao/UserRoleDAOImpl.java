@@ -1,9 +1,12 @@
 package dao;
 
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import model.UserRole;
 
+@Repository
 public class UserRoleDAOImpl implements UserRoleDAO{
 
 	private SessionFactory sessionFactory;
