@@ -95,22 +95,20 @@ public class CommentDAOImpl implements CommentDAO{
 	}
 	
 	//stub
-	//-
+	@SuppressWarnings("Supressed Unchecked Exception in CommentDAO")
 	public UserComment getUserComment(UserComment myUserComment){
-		//open session
 		
-		//UserComment myCommentBean = (UserComment) session.get(UserComment.class);
-<<<<<<< HEAD
-		Query myQuery = mySessionFactory.getCurrentSession().createQuery("From UserService where UserId = " +
-		myUserComment.getUsersID() + " AND commentID = " + myUserComment.getCommentID());
-		UserComment myCommentBean  = myQuery.setString("idk", "COMMENTS_CONTENT");
-		return new UserComment();
-=======
-		UserComment userComment = (UserComment) sessionFactory.getCurrentSession().createQuery("From UserComment where UserId := "+
-		myUserComment.getUsersID()+ " AND commentID := " + myUserComment.getCommentID());
-		UserComment myCommentBean ;
-		return userComment;
->>>>>>> 70dabf8c6889fc28491232c5d2355c7c6cb900f5
+		Query myQuery = sessionFactory.getCurrentSession().
+				createQuery("From UserComment where UserId := first"+
+		" AND commentID := second");
+		
+		myQuery.setInteger("first", myUserComment.getUsersID());
+		myQuery.setInteger("second", myUserComment.getCommentID());
+		
+		List<UserComment> myResult = myQuery.list();
+		UserComment myCommentBean = myResult.get(0);
+		return myCommentBean;
+
 	}
 	//done-
 	@SuppressWarnings("Supressed Unchecked Exception in CommentDAO")
@@ -157,9 +155,19 @@ public class CommentDAOImpl implements CommentDAO{
 		
 		//shortcuts the sql argument with a session load statement
 		
-		Comment myComment = (Comment)session.load(Comment.class, commentID);
+		//Comment myComment = (Comment)session.load(Comment.class, commentID);
 		
-		return myComment;
+		//return myComment;
+		
+		Query myQuery = sessionFactory.getCurrentSession().
+				createQuery("From Comment where CommentId := first");
+		
+		myQuery.setInteger("first", commentID);
+		
+		List<Comment> myResult = myQuery.list();
+		Comment myCommentBean = myResult.get(0);
+		return myCommentBean;
+		
 	}
 	
 	//done
