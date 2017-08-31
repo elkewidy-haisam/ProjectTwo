@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Expense Reimbursement System</title>
+<script type="text/javascript"
+	src="https://code.angularjs.org/1.6.1/angular.js"></script>
+<script type="text/javascript"
+	src="https://code.angularjs.org/1.6.1/angular-route.js"></script>
+<script type="text/javascript" src="https://code.angularjs.org/1.6.1/angular-route.js"></script>
+<script type="text/javascript" src="reimbursement.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+</head>
+<body ng-app="reimbursements">
+
+	<div class="container">
+		<div ng-view>
+		
+		</div>
+	</div>
+
+<hr>
+<h2>What would you like to do?</h2>
+
+<input type="hidden" ng-init="role_id = 100">
+
+		<a href="#addReimbursement"> Add Reimbursement Request </a>
+		<a href="#viewReimbursements"> View All Reimbursement Requests </a>
+		<a href="#viewPendingReimbursements"> View Pending Reimbursement Requests </a>
+		<a href="#viewPastReimbursements"> View Past Reimbursement Requests </a>
+		
+</body>
+</html>

@@ -44,9 +44,8 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	public void editBlogPost(BlogPost blogpost) {
 		// TODO Auto-generated method stub
 		
-		session.beginTransaction();
 		sessionFactory.getCurrentSession().saveOrUpdate(blogpost);
-		session.getTransaction().commit();
+	
 			
 	}
 		
@@ -54,8 +53,8 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	public void deleteBlogPost(BlogPost blogpost) {
 		// TODO Auto-generated method stub
 		
-		session.beginTransaction();
+		
 		sessionFactory.getCurrentSession().delete(blogpost);
-		session.getTransaction().commit();
+		
 	}
 }
