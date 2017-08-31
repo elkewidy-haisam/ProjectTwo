@@ -16,6 +16,7 @@ public class UserDAOImpl implements UserDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 		
