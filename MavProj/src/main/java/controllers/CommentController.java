@@ -17,6 +17,7 @@ import model.UserComment;
 @Controller
 public class CommentController {
 
+	@Autowired
 	private CommentDAO myCommentDAO;
 	//not 100% about these mappings
 	

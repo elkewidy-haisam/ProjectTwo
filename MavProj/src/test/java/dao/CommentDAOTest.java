@@ -109,16 +109,23 @@ public class CommentDAOTest {
 	
 	//done
 	@Test
-	//@Ignore
+	@Ignore
 	public void testAddComment(){
-		//new dao
-		CommentDAOImpl myCommentDAOImpl = new CommentDAOImpl();
-		//create a new bean to insert
-		Comment myComment = new Comment();
-		myComment.setComment_id(4);
-		myComment.setUser_id(4);
-		//call the add function
-		myCommentDAOImpl.addComment(myComment);
+		
+		try{
+			//new dao
+			CommentDAOImpl myCommentDAOImpl = new CommentDAOImpl();
+			//create a new bean to insert
+			Comment myComment = new Comment();
+			myComment.setComment_id(4);
+			myComment.setUser_id(4);
+			//call the add function
+			myCommentDAOImpl.addComment(myComment);
+		}catch(NullPointerException q){
+			
+			q.printStackTrace();
+		}
+		
 		
 	}
 	

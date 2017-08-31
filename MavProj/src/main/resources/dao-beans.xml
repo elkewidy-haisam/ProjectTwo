@@ -12,9 +12,12 @@
 	<!--  1. DataSource -->
 	<bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@chinook-1707-java.crwnhws3xbwv.us-east-2.rds.amazonaws.com:1521:ORCL" />
+		
+		
+		<property name="url" value="jdbc:oracle:thin:@chinook-1707-java.crwnhws3xbwv.us-east-2.rds.amazonaws.com:1521:orcl" />
 		<property name="username" value="username" />
 		<property name="password" value="password" />
+		
 	</bean>
 	
 	<!--  2. SessionFactory -->

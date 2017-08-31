@@ -26,7 +26,7 @@ public class CommentDAOImpl implements CommentDAO{
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-		
+		System.out.println("Session Created");
 	}
 	/*
 	public CommentDAOImpl(){
