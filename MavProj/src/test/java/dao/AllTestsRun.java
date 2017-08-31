@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import junit.BlogPostDAOTest;
-import junit.UserDAOTests;
+import junit.UserDAOTest;
 import junit.UserRoleDAOTest;
 
 @RunWith(Suite.class)
@@ -14,7 +14,7 @@ import junit.UserRoleDAOTest;
 	CommentDAOTest.class,
 	BlogPostDAOTest.class,
 	CommentDAOTest.class,
-	UserDAOTests.class,
+	UserDAOTest.class,
 	UserRoleDAOTest.class
 })
 
