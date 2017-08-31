@@ -3,12 +3,13 @@ package junit;
 import static org.junit.Assert.*;
 
 import org.junit.*;
-
-import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import dao.UserDAOImpl;
@@ -29,7 +30,16 @@ public class UserDAOTest {
 	public void createUserTest(){
 
 		User user = new User();
-		UserDAOImpl userdaoimpl = (UserDAOImpl) context.getBean(UserDAOImpl.class);
+		UserDAOImpl userdaoimpl = (UserDAOImpl) context.getBean("UserDAOImpl"); 
+		
+		if (userdaoimpl != null) {
+			
+			System.out.println("User context acquired.");
+			
+		} else {
+			
+			System.out.println("User context not acquired.");
+		}
 		user.setUsername("bye.felicia");
 		user.setFirstname("Bye");
 		user.setLastname("Felicia");
@@ -47,7 +57,7 @@ public class UserDAOTest {
 	public void updateUserTest(){
 
 		User user = new User();
-		UserDAOImpl userdaoimpl = context.getBean(UserDAOImpl.class);
+		UserDAOImpl userdaoimpl = (UserDAOImpl) context.getBean("UserDAOImpl"); 
 		user.setEmail("haisam99@gmail.com");
 		userdaoimpl.updateUser(user);
 		
@@ -61,7 +71,7 @@ public class UserDAOTest {
 	public void getFullNameTest(){
 
 		User user = new User();
-		UserDAOImpl userdaoimpl = context.getBean(UserDAOImpl.class);
+		UserDAOImpl userdaoimpl = (UserDAOImpl) context.getBean("UserDAOImpl"); 
 		String fullname = userdaoimpl.getFullName(user);
 		
 		System.out.println(fullname);
@@ -72,7 +82,7 @@ public class UserDAOTest {
 	public void deleteUserTest(){
 
 		User user = new User();
-		UserDAOImpl userdaoimpl = context.getBean(UserDAOImpl.class);
+		UserDAOImpl userdaoimpl = (UserDAOImpl) context.getBean("UserDAOImpl"); 
 		userdaoimpl.deleteUser(user);
 		
 		System.out.println("User deleted.");
