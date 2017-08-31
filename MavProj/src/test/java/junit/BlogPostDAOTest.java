@@ -9,12 +9,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import dao.BlogPostDAOImpl;
 import model.BlogPost;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes=BlogPostDAOImpl.class)
+
 public class BlogPostDAOTest {
 	
 	@Autowired
@@ -22,7 +22,7 @@ public class BlogPostDAOTest {
 	
 	@BeforeClass
 	public static void setup(){
-		context = new ClassPathXmlApplicationContext("beans.xml");
+		context = new XmlWebApplicationContext();
 	}
 	
 	@Test

@@ -23,7 +23,7 @@ public class UserDAOTest {
 	
 	@BeforeClass
 	public static void setup(){
-		context = new ClassPathXmlApplicationContext("beans.xml");
+		context = new XmlWebApplicationContext();
 	}
 	
 	@Test
