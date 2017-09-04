@@ -75,7 +75,7 @@ public class UserDAOImplTest {
 		
 		user.setFirstname("Dan");
 		user.setLastname("Pickles");
-		userdaoimpl.update();
+		userdaoimpl.update(user);
 		
 	}
 	
@@ -90,7 +90,7 @@ public class UserDAOImplTest {
 	@Ignore
 	public void GetUserTest(){
 		
-		userdaoimpl.getUserByID();
+		userdaoimpl.getUserByID(1300);
 		
 	}
 	

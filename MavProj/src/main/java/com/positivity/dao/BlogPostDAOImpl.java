@@ -42,7 +42,7 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 	public void editBlogPost(BlogPost blogpost) {
 		// TODO Auto-generated method stub
 		
-		sessionFactory.getCurrentSession().saveOrUpdate(blogpost);
+		sessionFactory.getCurrentSession().createQuery("UPDATE BlogPost SET blogpost_content =:blogpost_content WHERE blogpost_user_id =:blogpost_user_id");
 			
 	}
 		

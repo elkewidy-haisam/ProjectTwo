@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.positivity.model.BlogPost;
 import com.positivity.model.User;
 
 
@@ -39,14 +40,21 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Transactional(isolation=Isolation.READ_COMMITTED, propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-	public void getUserByID() {
+	public User getUserByID(int user_id) {
 		// TODO Auto-generated method stub
-		System.out.println("User acquired by ID.");
+		
+		System.out.println("Acquiring user by id: " + user_id);
+		
+		return (User) sessionFactory.getCurrentSession()
+				.createQuery("FROM User WHERE user_id =:user_id").setParameter("user_id", user_id).uniqueResult();
+		
+		
 	}
 
 	@Transactional(isolation=Isolation.READ_COMMITTED, propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
-	public void update() {
+	public void update(User user) {
 		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().saveOrUpdate(user);
 		System.out.println("User updated.");
 	}
 

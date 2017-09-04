@@ -1,4 +1,4 @@
-package daoimpltests;
+package integrationtests;
 
 import static org.junit.Assert.assertNotNull;
 
