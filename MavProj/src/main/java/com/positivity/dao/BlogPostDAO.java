@@ -1,5 +1,7 @@
 package com.positivity.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.positivity.model.*;
@@ -19,6 +21,9 @@ public interface BlogPostDAO {
 	
 	//delete entire blog post
 	public void deleteBlogPost(BlogPost blogpost);
+	
+	//view all blog post
+	public List<BlogPost> viewAllBlogPosts();
 	
 	
 	

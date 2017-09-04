@@ -64,5 +64,13 @@ public class BlogPostController {
 		daoimpl.getBlogPostByID(blogpost_id);
 	
 	}
+	
+	@RequestMapping(value="/blogpost/getall", method=RequestMethod.GET, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void getAllBlogPosts() {
+		
+		daoimpl.viewAllBlogPosts();
+		
+	}
 
 }

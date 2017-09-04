@@ -1,5 +1,7 @@
 package com.positivity.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,4 +56,14 @@ public class BlogPostDAOImpl implements BlogPostDAO{
 		sessionFactory.getCurrentSession().delete(blogpost);
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional(isolation=Isolation.READ_COMMITTED, propagation=Propagation.REQUIRED, rollbackFor=Exception.class)
+	public List<BlogPost> viewAllBlogPosts() {
+		
+		return sessionFactory.getCurrentSession().createQuery("FROM BlogPost").list();
+		
+	}
+	
+	
 }

@@ -39,10 +39,11 @@
 	
 <script>
 
-	angular.module('centerContent', ["ngRoute"]);
+//center content module
+angular.module('centerContent', ["ngRoute"]);
 
 
-	//update profile
+//update profile
 	angular.module("centerContent")
 		.controller("moderatorupdateprofilecontroller",function($http,$scope){
 			$scope.updateProfile = function(){
@@ -79,6 +80,24 @@
 						});
 				}
 	});
+	
+// view blogpost
+	angular.module("centerContent").controller("viewPendingReimbursementsCtrl", function($scope, $http) {
+		
+		$http({
+		
+			method: "GET", url: "http://localhost:8080/MavProj/blogpost/getall"
+			
+		}).then(function(response) {
+			
+			$scope.allBlogs = response.data;
+			
+		});
+
+	});
+	
+
+
 </script>
 
 </head>
@@ -131,58 +150,57 @@
 
 <!-- Update Profile -->
 
-
-<form ng-submit="updateProfile()">
-<div class="container-fluid" id = "myBody">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive">
-        <table summary="Input Data Table:" class="table table-borderless table-hover">
-          <h3 class="text-center">Update User Profile:</h3>
-          <thead>
-            <tr>
-              <th>Input:</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Username:</td>
-              <td><input ng-model="user.username" type="text"></td>
-            </tr>
-            <tr>
-              <td>Password:</td>
-              <td><input ng-model="user.password" type="password"></td>
-              
-              
-            </tr>
-            <tr>
-              <td>First Name:</td>
-              <td><input ng-model="user.firstname" type="text"></td>
-            </tr>
-            <tr>
-              <td>Last Name:</td>
-              <td><input ng-model="user.lastname" type="text"></td>
-                     
-            </tr>
-            <tr>
-              <td></td>
-              <td><button type="Button" class="btn btn-lg btn-default" 
-              type="submit" value="Update">Edit Profile</button></td>
-           
-            </tr>
-            
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2" class="text-center"></td>
-            </tr>
-          </tfoot>
-          </form>
-        </table>
-      </div><!--end of .table-responsive-->
-    </div>
-  </div>
+<div ng-controller = "moderatorupdateprofilecontroller">
+		<form ng-submit="updateProfile()">
+			<div class="container-fluid" id = "myBody">
+			  <div class="row">
+			    <div class="col-xs-12">
+			      <div class="table-responsive">
+			        <table summary="Input Data Table:" class="table table-borderless table-hover">
+			          <h3 class="text-center">Update User Profile:</h3>
+			          <thead>
+			            <tr>
+			              <th>Input:</th>
+			              <th></th>
+			            </tr>
+			          </thead>
+			          <tbody>
+			            <tr>
+			              <td>Username:</td>
+			              <td><input ng-model="user.username" type="text"></td>
+			            </tr>
+			            <tr>
+			              <td>Password:</td>
+			              <td><input ng-model="user.password" type="password"></td> 
+			            </tr>
+			            <tr>
+			              <td>First Name:</td>
+			              <td><input ng-model="user.firstname" type="text"></td>
+			            </tr>
+			            <tr>
+			              <td>Last Name:</td>
+			              <td><input ng-model="user.lastname" type="text"></td>
+			                     
+			            </tr>
+			            <tr>
+			              <td></td>
+			              <td><button type="Button" class="btn btn-lg btn-default" 
+			              type="submit" value="Update">Edit Profile</button></td>
+			           
+			            </tr>
+			            
+			          </tbody>
+			          <tfoot>
+			            <tr>
+			              <td colspan="2" class="text-center"></td>
+			            </tr>
+			          </tfoot>
+			        </table>
+			      </div><!--end of .table-responsive-->
+			    </div>
+			  </div>
+			</div>
+		</form>
 </div>
 
 
@@ -190,58 +208,59 @@
 
 
 <!-- Create Blog -->
-		</table>
-<form ng-submit="createBlog()">
-<div class="container-fluid" id = "myBody">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive">
-        <table summary="Input Data Table:" class="table table-borderless table-hover">
-          <h3 class="text-center">Create New Blog Post:</h3>
-          <thead>
-            <tr>
-              <th>Blog Body:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-              
-              <!--<input ng-model="blog.content" type="text">-->
-              
-              <textarea id="BlogContentDatail" ng-model="blog.content"></textarea>
-		
-              
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button type="Button" class="btn btn-lg btn-success" 
-                type="submit" value="Create">New Blog</button>
-      			</td>
-            </tr>
-          
-            
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2" class="text-center"></td>
-            </tr>
-          </tfoot>
-          </form>
-        </table>
-      </div><!--end of .table-responsive-->
-    </div>
-  </div>
+<div ng-controller="moderatoraddblogcontroller">
+	<form ng-submit="createBlog()">
+	<div class="container-fluid" id = "myBody">
+	  <div class="row">
+	    <div class="col-xs-12">
+	      <div class="table-responsive">
+	        <table summary="Input Data Table:" class="table table-borderless table-hover">
+	          <h3 class="text-center">Create New Blog Post:</h3>
+	          <thead>
+	            <tr>
+	              <th>Blog Body:</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr>
+	              <td>
+	              
+	              <!--<input ng-model="blog.content" type="text">-->
+	              
+	              <textarea id="BlogContentDatail" ng-model="blog.content"></textarea>
+			
+	              
+	              </td>
+	            </tr>
+	            <tr>
+	              <td>
+	                <button type="Button" class="btn btn-lg btn-success" 
+	                type="submit" value="Create">New Blog</button>
+	      			</td>
+	            </tr>
+	          
+	            
+	          </tbody>
+	          <tfoot>
+	            <tr>
+	              <td colspan="2" class="text-center"></td>
+	            </tr>
+	          </tfoot>
+	          </form>
+	        </table>
+	      </div><!--end of .table-responsive-->
+	    </div>
+	  </div>
+	</div>
+	</form>
 </div>
-</form>
-		<!--
-		<form ng-submit="createBlog()">
-		<input ng-model="blog.content" type="text">
-		<button type="Button" class="btn btn-lg btn-success" type="submit" value="Create">New Blog</button>
-		</form>
-		
-		-->
+			<!--
+			<form ng-submit="createBlog()">
+			<input ng-model="blog.content" type="text">
+			<button type="Button" class="btn btn-lg btn-success" type="submit" value="Create">New Blog</button>
+			</form>
+			
+			-->
 <!-- End Create Blog -->
 
 <!-- Delete Blog -->
@@ -257,55 +276,57 @@
 <br>
 <br>
 
-<form ng-submit="deleteBlog()">
-<div class="container-fluid" id = "myBody">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="table-responsive">
-        <table summary="Delete Blog Table:" class="table table-borderless table-hover">
-          <h3 class="text-center">Delete Blog Post:</h3>
-          <thead>
-            <tr>
-              <th>Blog Title:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-              
-              <!--<input ng-model="blog.content" type="text">-->
-              
-              
-		 <input id="BlogContentDatail" ng-model="blog.title" type="text">
-		<span id="count"></span>
-              
-              </td>
-            </tr>
-            <tr>
-              <td>
-              	<button type="Button" class="btn btn-lg btn-danger" 
-		type="submit" value="Delete">Delete Blog</button>
-              
-      			</td>
-            </tr>
-          
-            
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2" class="text-center"></td>
-            </tr>
-          </tfoot>
-          </form>
-        </table>
-      </div><!--end of .table-responsive-->
-    </div>
-  </div>
-</div>
-</form>		  
+<div ng-controller="moderatordeleteblogcontroller">
+	<form ng-submit="deleteBlog()">
+		<div class="container-fluid" id = "myBody">
+		  <div class="row">
+		    <div class="col-xs-12">
+		      <div class="table-responsive">
+		        <table summary="Delete Blog Table:" class="table table-borderless table-hover">
+		          <h3 class="text-center">Delete Blog Post:</h3>
+		          <thead>
+		            <tr>
+		              <th>Blog Title:</th>
+		            </tr>
+		          </thead>
+		          <tbody>
+		            <tr>
+		              <td>
+		              
+		              <!--<input ng-model="blog.content" type="text">-->
+		              
+		              
+				 <input id="BlogContentDatail" ng-model="blog.title" type="text">
+				<span id="count"></span>
+		              
+		              </td>
+		            </tr>
+		            <tr>
+		              <td>
+		              	<button type="Button" class="btn btn-lg btn-danger" 
+				type="submit" value="Delete">Delete Blog</button>
+		              
+		      			</td>
+		            </tr>
+		            
+		          </tbody>
+		          <tfoot>
+		            <tr>
+		              <td colspan="2" class="text-center"></td>
+		            </tr>
+		          </tfoot>
+		          </form>
+		        </table>
+		      </div><!--end of .table-responsive-->
+		    </div>
+		  </div>
+		</div>
+   </form>
+</div>	  
 		  
 		  
-<!-- Begin View All Blogs -->		  
+<!-- Begin View All Blogs -->
+	<div ng-controller="">		  
 		 <form ng-submit="viewAllBlogs()">
 		
 		
@@ -313,6 +334,7 @@
 		
 		
 		</form>
+	</div>
 		
 		
 <!-- End Delete Blog -->
