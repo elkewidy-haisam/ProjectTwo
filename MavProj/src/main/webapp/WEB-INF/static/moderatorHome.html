@@ -12,7 +12,10 @@
 
     <title>Moderator Page</title>
 
-	<link src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></link>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+   
 
 	<!-- Bootstrap core CSS -->
 	<!-- Latest compiled and minified CSS -->
@@ -33,7 +36,11 @@
 	
 	
     <!-- Custom styles for this template -->
+
+    <!--  <link rel="stylesheet" type="text/css" href="sidebar.css">-->
+
     <link href="sidebar.css" rel="stylesheet">
+
 
 	<script type="text/javascript" scr="/danjsIndex.js"></script>
 	
@@ -42,8 +49,12 @@
 //center content module
 angular.module('centerContent', ["ngRoute"]);
 
+<<<<<<< HEAD
 
 //update profile
+=======
+	//update profile
+>>>>>>> f08223887ff3f87379b456262ebe24b028f57d81
 	angular.module("centerContent")
 		.controller("moderatorupdateprofilecontroller",function($http,$scope){
 			$scope.updateProfile = function(){
@@ -150,6 +161,7 @@ angular.module('centerContent', ["ngRoute"]);
 
 <!-- Update Profile -->
 
+<<<<<<< HEAD
 <div ng-controller = "moderatorupdateprofilecontroller">
 		<form ng-submit="updateProfile()">
 			<div class="container-fluid" id = "myBody">
@@ -202,7 +214,46 @@ angular.module('centerContent', ["ngRoute"]);
 			</div>
 		</form>
 </div>
+=======
 
+<form ng-submit="updateProfile()" ng-controller="moderatoraddblogcontroller">
+
+        <table summary="Input Data Table:" class="table table-borderless table-hover">
+          <h3 class="text-center">Update User Profile:</h3>
+          <thead>
+            <tr>
+              <th>Input:</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Username:</td>
+              <td><input ng-model="user.username" type="text" name="username"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input ng-model="user.password" type="password" name="password"></td>
+            </tr>
+            <tr>
+              <td>First Name:</td>
+              <td><input ng-model="user.firstname" type="text" name="firstname"></td>
+            </tr>
+            <tr>
+              <td>Last Name:</td>
+              <td><input ng-model="user.lastname" type="text" name="lastname"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><button class="btn btn-lg btn-default" 
+              type="submit" id= "submit" value="Update">Edit Profile</button></td>
+            </tr>
+          </tbody>
+>>>>>>> f08223887ff3f87379b456262ebe24b028f57d81
+
+        </table>
+  
+</form>
 
 <!-- End Update Profile -->
 
