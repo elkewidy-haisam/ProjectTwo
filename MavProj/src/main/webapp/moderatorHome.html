@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Moderator Page</title>
+
+	<!-- Bootstrap core CSS -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- AngularJS Scripts -->
+	<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+	
+    <!-- Custom styles for this template -->
+    <link href="/sidebar.css" rel="stylesheet">
+
+	<script type="text/javascript" scr="/sidebar.js"></script>
+	<script type="text/javascript" scr="/danjsIndex.js"></script>
+	
+	
+	<script>
+	
+	//update profile
+	
+	angular.module("centerContent")
+		.controller("moderatorupdateprofilecontroller",function($http,$scope){
+			$scope.updateProfile = function(){
+				$http.post("http://localhost:8080/MavProj/user/update",
+						$scope.user).then(function(value){
+					window.alert("Profile Updated.");
+				});
+			}
+			
+		});
+
+     //create blogpost
+	
+	angular.module("centerContent")
+	.controller("moderatoraddblogcontroller",
+			function($http,$scope){
+				$scope.createBlog = function(){
+				$http.post("http://localhost:8080/MavProj/blogpost/create", 
+						$scope.blogpost).then(function(value){
+							window.alert("Blog Post Created");
+						});
+				}
+	});
+
+</script>
+
+  </head>
+
+
+
+
+<body>
+
+<!--Navigation Bar -->
+  
+  <body ng-app="centerContent">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" >
+      <div class="container-fluid">
+        <div class="navbar-header">
+		
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+          data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Positivity Blog</a>
+        </div>
+		
+		
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+		  <li><a href="#index.html">Home</a></li>
+            <li><a href="#about.html">About</a></li>
+            <li><a href="#modhome.html">Profile</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+		
+		
+      </div>
+    </nav>
+	
+	<!--End Navigation Bar -->
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- Update Profile -->
+
+
+</table>
+<form ng-submit="updateProfile()">
+<div class="container-fluid" id = "myBody">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="Input Data Table:" class="table table-borderless table-hover">
+          <h3 class="text-center">Update User Profile:</h3>
+          <thead>
+            <tr>
+              <th>Input:</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Username:</td>
+              <td><input ng-model="username" type="text"></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input ng-model="password" type="password"></td>
+              
+              
+            </tr>
+            <tr>
+              <td>First Name:</td>
+              <td><input ng-model="firstname" type="text"></td>
+            </tr>
+            <tr>
+              <td>Last Name:</td>
+              <td><input ng-model="lastname" type="text"></td>
+                     
+            </tr>
+            <tr>
+              <td></td>
+              <td><button type="Button" class="btn btn-lg btn-default" type="submit" value="Update">Edit Profile</button></td>
+           
+            </tr>
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="text-center"></td>
+            </tr>
+          </tfoot>
+          </form>
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
+
+
+<!-- End Update Profile -->
+
+
+<!-- Create Blog -->
+		</table>
+<form ng-submit="createBlog()">
+<div class="container-fluid" id = "myBody">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="Input Data Table:" class="table table-borderless table-hover">
+          <h3 class="text-center">Create New Blog Post:</h3>
+          <thead>
+            <tr>
+              <th>Blog Body:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+              
+              <!--<input ng-model="blog.content" type="text">-->
+              
+              <textarea id="BlogContentDatail" ng-model="blog.content"></textarea>
+		
+              
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button type="Button" class="btn btn-lg btn-success" 
+                type="submit" value="Create">New Blog</button>
+      			</td>
+            </tr>
+          
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="text-center"></td>
+            </tr>
+          </tfoot>
+          </form>
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
+</form>
+		<!--
+		<form ng-submit="createBlog()">
+		<input ng-model="blog.content" type="text">
+		<button type="Button" class="btn btn-lg btn-success" type="submit" value="Create">New Blog</button>
+		</form>
+		
+		-->
+<!-- End Create Blog -->
+
+<!-- Delete Blog -->
+		
+		
+			
+		
+		
+		
+
+
+
+<br>
+<br>
+
+<form ng-submit="deleteBlog()">
+<div class="container-fluid" id = "myBody">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive">
+        <table summary="Delete Blog Table:" class="table table-borderless table-hover">
+          <h3 class="text-center">Delete Blog Post:</h3>
+          <thead>
+            <tr>
+              <th>Blog Title:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+              
+              <!--<input ng-model="blog.content" type="text">-->
+              
+              
+		 <input id="BlogContentDatail" ng-model="blog.title" type="text">
+		<span id="count"></span>
+              
+              </td>
+            </tr>
+            <tr>
+              <td>
+              	<button type="Button" class="btn btn-lg btn-danger" 
+		type="submit" value="Delete">Delete Blog</button>
+              
+      			</td>
+            </tr>
+          
+            
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="text-center"></td>
+            </tr>
+          </tfoot>
+          </form>
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
+</form>		  
+		  
+		 <form ng-submit="viewAllBlogs()">
+		
+		
+		<button type="Button" class="btn btn-lg btn-warning">View Blogs</button>
+		
+		
+		</form>
+		
+		
+<!-- End Delete Blog -->
+
+<div >
+  <table summary="Blogposts ordered from most recent:" class="table table-bordered table-hover">
+          <caption class="text-center">Blogposts ordered from most recent:</caption>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Author</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in allBlogs">
+              <td >{{x.title}}</td>
+              <td>{{x.description}}</td>
+              <td>{{x.author}}</td>
+              <td>{{x.date}}</td>
+              
+            </tr>
+        
+          </tbody>
+          <tfoot>
+            <tr>
+              
+            </tr>
+          </tfoot>
+        </table>
+</div>
+
+
+<!-- end center area -->
+  </body>
+
+</html>
