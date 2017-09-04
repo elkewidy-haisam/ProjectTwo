@@ -115,3 +115,8 @@ body {
 .comments-list .media{
     border-bottom: 1px dotted #ccc;
 }
+
+
+  #myWrap {width: 500px; margin:0 auto;}
+  #myBody {overflow: auto;}
+  #sidebar {float:left; width: 150px; min-height:400px;}
