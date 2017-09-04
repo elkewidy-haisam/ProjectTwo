@@ -1,4 +1,4 @@
-package daoimpltests;
+package integrationtests;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -85,7 +85,7 @@ public class TestsToRetrieveEverything {
 	@Test
 	public void GetUserByIDTest(){
 		
-		userdaoimpl.getUserByID();
+		userdaoimpl.getUserByID(1300);
 		
 	}
 	

@@ -6,9 +6,9 @@ public interface UserDAO {
 	
 	public void create(User user);
 	
-	public void getUserByID();
+	public User getUserByID(int user_id);
 	
-	public void update();
+	public void update(User user);
 	
 	public void delete(User user);
 

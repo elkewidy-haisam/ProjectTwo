@@ -46,7 +46,7 @@ public class UserController {
 	@ResponseBody
 	public void update(@RequestBody User user){
 		
-		daoimpl.update();
+		daoimpl.update(user);
 		
 	}
 	
@@ -60,9 +60,16 @@ public class UserController {
 	
 	@RequestMapping(value="/user/fullname", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public void getFullName(@RequestBody User user){
+	public String getFullName(@RequestBody User user){
 		
-		daoimpl.getUserByID();
+		return(user.getFirstname() + user.getLastname()).toString();
+		
+	}
+	
+	@RequestMapping(value="/user/id", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public void getUserByID(@RequestBody User user){
+		
 		
 	}
 

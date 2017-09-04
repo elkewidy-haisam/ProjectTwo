@@ -1,16 +1,11 @@
+angular.module('sidenavDemo2', ['ngMaterial'])
+  .controller('AppCtrl', function ($scope, $timeout, $mdSidenav) {
+    $scope.toggleLeft = buildToggler('left');
+    $scope.toggleRight = buildToggler('right');
 
-//reference router
-	angular.module("centerContent",["ng-route"]);
-	
-	angular.module("centerContent")
-	.config(function($locationProvider, $routeProvider){
-		$locationProvider.hashPrefix("");
-		$routeProvider.when("/moderatorUpdateProfile",{
-			templateUrl: "moderatorUpdateProfile.html",
-			controller: "moderatorupdateprofilecontroller"
-		}).when("/createBlog",{
-			templateUrl: "moderatoraddblog.html",
-			controller: "moderatoraddblogcontroller"
-		});
-	});
-  
+    function buildToggler(componentId) {
+      return function() {
+        $mdSidenav(componentId).toggle();
+      };
+    }
+  });

@@ -20,3 +20,4 @@
 #AngularJS
 **/.tern-project
 MavProj/src/test/java/junit/BlogPostDAOTests.java
+MavProj/src/main/webapp/WEB-INF/web.xml

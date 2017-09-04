@@ -36,14 +36,17 @@
 	
 	
     <!-- Custom styles for this template -->
+
     <!--  <link rel="stylesheet" type="text/css" href="sidebar.css">-->
 
-	<!--  <script type="text/javascript" scr="/sidebar.js"></script>-->
+    <link href="sidebar.css" rel="stylesheet">
+
+
 	<script type="text/javascript" scr="/danjsIndex.js"></script>
 	
-	
 <script>
-	angular.module('centerContent', []);
+
+	angular.module('centerContent', ["ngRoute"]);
 
 	//update profile
 	angular.module("centerContent")
@@ -55,10 +58,8 @@
 				});
 			}
 		});
-</script>
 
 
-<script>
 //create blogpost
 	angular.module("centerContent")
 	.controller("moderatoraddblogcontroller",
@@ -70,10 +71,9 @@
 						});
 				}
 	});
-</script>
 
 
-<script>
+
 //delete blogpost
 	angular.module("centerContent")
 	.controller("moderatordeleteblogcontroller",
