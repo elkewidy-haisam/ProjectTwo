@@ -1,7 +1,10 @@
 package com.positivity.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.positivity.model.User;
 
+@Repository
 public interface UserDAO {
 	
 	public void create(User user);

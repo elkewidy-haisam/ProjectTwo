@@ -37,12 +37,12 @@ public class BlogPost {
 		super();
 	}
 
-	public BlogPost(int blogpost_id, Date blogpost_timestamp,
-			String blogpost_content) {
+	public BlogPost(int blogpost_id,
+			String blogpost_content, int blogpost_user_id) {
 		super();
 		this.blogpost_id = blogpost_id;
-		this.blogpost_timestamp = blogpost_timestamp;
 		this.blogpost_content = blogpost_content;
+		this.blogpost_user_id = blogpost_user_id;
 		
 	}
 	

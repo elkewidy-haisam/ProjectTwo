@@ -41,75 +41,8 @@
 
     <link href="sidebar.css" rel="stylesheet">
 
-
-	<script type="text/javascript" scr="/danjsIndex.js"></script>
-	
-<script>
-
-//center content module
-angular.module('centerContent', ["ngRoute"]);
-
-<<<<<<< HEAD
-
-//update profile
-=======
-	//update profile
->>>>>>> f08223887ff3f87379b456262ebe24b028f57d81
-	angular.module("centerContent")
-		.controller("moderatorupdateprofilecontroller",function($http,$scope){
-			$scope.updateProfile = function(){
-				$http.put("http://localhost:8080/MavProj/user/update",
-						$scope.user).then(function(value){
-					window.alert("Profile Updated.");
-				});
-			}
-		});
-
-
-//create blogpost
-	angular.module("centerContent")
-	.controller("moderatoraddblogcontroller",
-			function($http,$scope){
-				$scope.createBlog = function(){
-				$http.post("http://localhost:8080/MavProj/blogpost/create", 
-						$scope.blogpost).then(function(value){
-							window.alert("Blog Post Created");
-						});
-				}
-	});
-
-
-
-//delete blogpost
-	angular.module("centerContent")
-	.controller("moderatordeleteblogcontroller",
-			function($http,$scope){
-				$scope.createBlog = function(){
-				$http.delete("http://localhost:8080/MavProj/blogpost/create", 
-						$scope.blogpost).then(function(value){
-							window.alert("Blog Post Deleted");
-						});
-				}
-	});
-	
-// view blogpost
-	angular.module("centerContent").controller("viewPendingReimbursementsCtrl", function($scope, $http) {
-		
-		$http({
-		
-			method: "GET", url: "http://localhost:8080/MavProj/blogpost/getall"
-			
-		}).then(function(response) {
-			
-			$scope.allBlogs = response.data;
-			
-		});
-
-	});
-	
-
-
-</script>
+	<script type="text/javascript" src="/danjsIndex.js"></script>
+	<script type="text/javascript" src = "/CenterContent.js"> </script>
 
 </head>
 
@@ -161,7 +94,6 @@ angular.module('centerContent', ["ngRoute"]);
 
 <!-- Update Profile -->
 
-<<<<<<< HEAD
 <div ng-controller = "moderatorupdateprofilecontroller">
 		<form ng-submit="updateProfile()">
 			<div class="container-fluid" id = "myBody">
@@ -179,19 +111,19 @@ angular.module('centerContent', ["ngRoute"]);
 			          <tbody>
 			            <tr>
 			              <td>Username:</td>
-			              <td><input ng-model="user.username" type="text"></td>
+			              <td><input ng-model="oldUser.username" type="text"></td>
 			            </tr>
 			            <tr>
 			              <td>Password:</td>
-			              <td><input ng-model="user.password" type="password"></td> 
+			              <td><input ng-model="oldUser.password" type="password"></td> 
 			            </tr>
 			            <tr>
 			              <td>First Name:</td>
-			              <td><input ng-model="user.firstname" type="text"></td>
+			              <td><input ng-model="oldUser.firstname" type="text"></td>
 			            </tr>
 			            <tr>
 			              <td>Last Name:</td>
-			              <td><input ng-model="user.lastname" type="text"></td>
+			              <td><input ng-model="oldUser.lastname" type="text"></td>
 			                     
 			            </tr>
 			            <tr>
@@ -214,46 +146,44 @@ angular.module('centerContent', ["ngRoute"]);
 			</div>
 		</form>
 </div>
-=======
 
-<form ng-submit="updateProfile()" ng-controller="moderatoraddblogcontroller">
-
-        <table summary="Input Data Table:" class="table table-borderless table-hover">
-          <h3 class="text-center">Update User Profile:</h3>
-          <thead>
-            <tr>
-              <th>Input:</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Username:</td>
-              <td><input ng-model="user.username" type="text" name="username"></td>
-            </tr>
-            <tr>
-              <td>Password:</td>
-              <td><input ng-model="user.password" type="password" name="password"></td>
-            </tr>
-            <tr>
-              <td>First Name:</td>
-              <td><input ng-model="user.firstname" type="text" name="firstname"></td>
-            </tr>
-            <tr>
-              <td>Last Name:</td>
-              <td><input ng-model="user.lastname" type="text" name="lastname"></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><button class="btn btn-lg btn-default" 
-              type="submit" id= "submit" value="Update">Edit Profile</button></td>
-            </tr>
-          </tbody>
->>>>>>> f08223887ff3f87379b456262ebe24b028f57d81
-
-        </table>
-  
-</form>
+<div ng-controller="moderatoraddprofilecontroller">
+	<form ng-submit="updateProfile()">
+	
+	        <table summary="Input Data Table:" class="table table-borderless table-hover">
+	          <h3 class="text-center">Create User Profile:</h3>
+	          <thead>
+	            <tr>
+	              <th>Input:</th>
+	              <th></th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr>
+	              <td>Username:</td>
+	              <td><input ng-model="newUser.username" type="text" name="username"></td>
+	            </tr>
+	            <tr>
+	              <td>Password:</td>
+	              <td><input ng-model="newUser.password" type="password" name="password"></td>
+	            </tr>
+	            <tr>
+	              <td>First Name:</td>
+	              <td><input ng-model="newUser.firstname" type="text" name="firstname"></td>
+	            </tr>
+	            <tr>
+	              <td>Last Name:</td>
+	              <td><input ng-model="newUser.lastname" type="text" name="lastname"></td>
+	            </tr>
+	            <tr>
+	              <td></td>
+	              <td><button class="btn btn-lg btn-default" 
+	              type="submit" id= "submit" value="Update">Create Profile</button></td>
+	            </tr>
+	          </tbody>
+	        </table>
+	</form>
+</div>
 
 <!-- End Update Profile -->
 
@@ -377,7 +307,7 @@ angular.module('centerContent', ["ngRoute"]);
 		  
 		  
 <!-- Begin View All Blogs -->
-	<div ng-controller="">		  
+	<div ng-controller="moderatorgetallblogscontroller">		  
 		 <form ng-submit="viewAllBlogs()">
 		
 		

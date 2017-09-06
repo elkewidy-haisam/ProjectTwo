@@ -20,7 +20,7 @@ public class BlogPostControllerTest {
 	@Test
 	public void testHomePage() throws Exception {
 		
-		mockMvc.perform(get("/"));
+		mockMvc.perform(get("/")).andExpect(view().name("home"));
 		
 	}
 	

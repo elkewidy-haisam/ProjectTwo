@@ -21,7 +21,6 @@ import com.positivity.servlets.BlogConfig;
 @ContextConfiguration(classes=BlogConfig.class)
 public class UserDAOImplTest {
 	
-	
 	@Autowired
 	@Qualifier("userdaoimpl")
 	UserDAO userdaoimpl;

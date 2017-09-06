@@ -2,9 +2,11 @@ package com.positivity.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.positivity.model.*;
 
-
+@Repository
 public interface CommentDAO {
 
 	//add

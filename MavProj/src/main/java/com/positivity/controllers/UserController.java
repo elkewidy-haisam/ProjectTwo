@@ -13,52 +13,42 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.positivity.dao.*;
 import com.positivity.model.*;
 
-@Controller
+@Controller("/user")
 public class UserController {
 	
 
 	@Autowired
-	private UserDAO daoimpl;
+	private UserDAO dao;
 	
-	
-	//Test method for controller to make sure it works
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String home() {
-		
-		return "home";
-		
+	public void setDAO(UserDAO daoimpl) {
+		this.dao = daoimpl;
 	}
 	
-	
-	public void setDaoImpl(UserDAOImpl daoimpl) {
-		this.daoimpl = daoimpl;
-	}
-	
-	@RequestMapping(value="/user/create", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/createUser", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public void create(@Valid @RequestBody User user){
 		
-		daoimpl.create(user);
+		dao.create(user);
 		
 	}
 	
-	@RequestMapping(value="/user/update", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/updateUser", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public void update(@RequestBody User user){
 		
-		daoimpl.update(user);
+		dao.update(user);
 		
 	}
 	
-	@RequestMapping(value="/user/delete", method=RequestMethod.DELETE, consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/deleteUser", method=RequestMethod.DELETE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public void delete(@RequestBody User user){
 		
-		daoimpl.delete(user);
+		dao.delete(user);
 		
 	}
 	
-	@RequestMapping(value="/user/fullname", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/FullName", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String getFullName(@RequestBody User user){
 		
@@ -66,7 +56,7 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping(value="/user/id", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/id", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public void getUserByID(@RequestBody User user){
 		

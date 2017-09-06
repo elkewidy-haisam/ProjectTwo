@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages={"com.positivity.controllers"})
+@ComponentScan(basePackages={"com.positivity"})
 public class WebConfig extends WebMvcConfigurerAdapter{
 
 	//Spring MVC

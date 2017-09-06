@@ -17,7 +17,7 @@ import com.positivity.model.BlogPost;
 import com.positivity.model.User;
 
 
-@Service("userdaoimpl")
+@Repository("userdaoimpl")
 public class UserDAOImpl implements UserDAO{
 	
 	

@@ -25,7 +25,6 @@ public class CommentControllerTest {
 	public void TestUpdateUserComment() throws Exception {
 		
 		mockMvc.perform(put("/UserComment/update"));
-		
 	}
 	
 	@Test
