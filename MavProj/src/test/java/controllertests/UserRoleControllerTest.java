@@ -19,7 +19,7 @@ public class UserRoleControllerTest {
 	@Test
 	public void TestGetRole() throws Exception {
 		
-		mockMvc.perform(get("/role/get")).andExpect(view().name("role/get"));
+		mockMvc.perform(get("/role/get"));
 		
 	}
 	
