@@ -1,10 +1,38 @@
-/**
- * 
- */
-
 //center content module
-     angular.module("centerContent", ["ngRoute"]);
+     angular.module("centerContent", []);
 
+//configuration to map front controller URL with AngularJS controllers
+
+    /*angular.module("centerContent").config(function($routeProvider, $locationProvider) {
+		$locationProvider.hashPrefix("");
+		$routeProvider
+			.when("/"), {
+			
+			
+			
+			})
+			.when("/"), {
+			
+			
+			
+			})
+			.when("/"), {
+			
+			
+			
+			})
+			.when("/"), {
+			
+			
+			
+			})
+			.when("/"), {
+			
+			
+			
+			});
+			
+	}); */
      
 //create profile
 	angular.module("centerContent").controller("moderatoraddprofilecontroller", function($scope, $http) {
@@ -145,7 +173,7 @@
 				}
 	});
 	
-// view blogposts
+//view blogposts
 	angular.module("centerContent").controller("moderatorgetallblogscontroller", function($scope, $http) {
 		
 		$http({
@@ -156,8 +184,8 @@
 			
 			$scope.allBlogs = response.data;
 			
+			console.log($scope.allBlogs);
+			
 		});
 
 	});
-	
-

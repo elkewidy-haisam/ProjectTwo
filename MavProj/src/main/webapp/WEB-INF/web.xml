@@ -7,7 +7,7 @@
 <web-app>
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/static/moderatorHome.html</welcome-file>
+		<welcome-file>moderatorHome.html</welcome-file>
 	</welcome-file-list>
 
 

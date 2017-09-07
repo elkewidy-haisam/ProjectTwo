@@ -13,14 +13,7 @@ public class UserControllerTest {
 	
 	UserController controller = new UserController();
 	MockMvc mockMvc = standaloneSetup(controller).build();
-	
-	@Test
-	public void testHomePage() throws Exception {
-		
-		
-		mockMvc.perform(get("/")).andExpect(view().name("home"));
-	
-	}
+
 	
 	@Test
 	public void testCreateUser() throws Exception {

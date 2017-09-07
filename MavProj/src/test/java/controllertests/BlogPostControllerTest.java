@@ -18,13 +18,6 @@ public class BlogPostControllerTest {
 	MockMvc mockMvc = standaloneSetup(controller).build();
 	
 	@Test
-	public void testHomePage() throws Exception {
-		
-		mockMvc.perform(get("/")).andExpect(view().name("home"));
-		
-	}
-	
-	@Test
 	public void testAddBlogPost() throws Exception {
 		
 		mockMvc.perform(post("/blogpost/create"));
